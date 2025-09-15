@@ -1,72 +1,97 @@
-Este é um projeto simples em Python que demonstra operações CRUD (Criar, Ler, Atualizar, Excluir) em um banco de dados PostgreSQL. Ele usa a biblioteca Psycopg2 para interagir com o banco de dados e o framework Flask para executar um servidor web simples.
+# Aplicação de CRUD em Python com Flask e PostgreSQL
+Este projeto é uma API simples em Python que demonstra operações CRUD (Criar, Ler, Atualizar, Excluir) em um banco de dados PostgreSQL. Ele usa o framework Flask para o servidor web e a biblioteca Psycopg2 para gerenciar as interações com o banco de dados.
 
-Estrutura do Projeto
-app.py: O arquivo principal da aplicação, que contém as rotas do Flask para lidar com as operações CRUD.
+## ⚙️ Tecnologias Utilizadas
+Python 3.x: Linguagem de programação principal.
 
-database.py: Gerencia a conexão com o banco de dados PostgreSQL.
+Flask: Um micro framework web leve e versátil.
 
-models.py: Define o modelo de dados para a sua aplicação.
+Psycopg2: Adaptador oficial para banco de dados PostgreSQL.
 
-create_tables.py: Um script para criar as tabelas necessárias no banco de dados.
+python-dotenv: Para carregar variáveis de ambiente de forma segura a partir de um arquivo .env.
 
-requirements.txt: Lista todas as bibliotecas Python necessárias para rodar o projeto.
+## 📂 Estrutura do Projeto
+app.py: O coração da aplicação. Contém as rotas da API e a lógica para lidar com as requisições HTTP (GET, POST, PUT, DELETE).
 
-README.md: O arquivo que você está lendo agora.
+database.py: Módulo responsável por estabelecer e gerenciar a conexão com o banco de dados PostgreSQL.
 
-Como Começar
+models.py: Define os modelos de dados e a estrutura das tabelas que serão criadas no banco.
+
+create_tables.py: Script de uso único para criar as tabelas do banco de dados com base nos modelos definidos.
+
+.env: Arquivo para armazenar variáveis de ambiente sensíveis, como credenciais de banco de dados. (Este arquivo não deve ser enviado para o GitHub).
+
+requirements.txt: Lista todas as dependências do projeto, facilitando a instalação.
+
+.gitignore: Define quais arquivos e pastas o Git deve ignorar (ex: venv/, .env, __pycache__/).
+
+## 🚀 Como Rodar o Projeto
+Siga estes passos para configurar e executar o projeto em sua máquina local.
+
 Pré-requisitos
-Certifique-se de ter o Python 3 e o PostgreSQL instalados no seu sistema.
+Certifique-se de ter o Python 3 e o PostgreSQL instalados.
 
-Instalação
-Clone o repositório (se ele estiver em um repositório git).
+1. Clonar o Repositório
+Bash
 
-Navegue até o diretório do projeto.
-
-Crie um ambiente virtual para gerenciar as dependências do projeto:
+git clone https://github.com/Simone-Ramos-Dev/python-postgresql-crud
+cd seu-repositorio
+2. Configurar o Ambiente Virtual
+É uma boa prática usar um ambiente virtual para gerenciar as dependências do projeto.
 
 Bash
 
 python -m venv venv
 Ative o ambiente virtual:
 
-No Windows:
+No Windows: venv\Scripts\activate
 
-Bash
+No macOS/Linux: source venv/bin/activate
 
-venv\Scripts\activate
-No macOS/Linux:
-
-Bash
-
-source venv/bin/activate
-Instale as bibliotecas necessárias:
+3. Instalar as Dependências
+Instale todas as bibliotecas necessárias listadas no arquivo requirements.txt.
 
 Bash
 
 pip install -r requirements.txt
-Configuração do Banco de Dados
-Configure seu banco de dados PostgreSQL. Você precisará criar um banco de dados e um usuário com as permissões adequadas.
+4. Configurar o Banco de Dados
+Crie um banco de dados PostgreSQL para o projeto.
 
-Atualize os detalhes de conexão no arquivo database.py com suas credenciais (por exemplo, host, nome do banco de dados, usuário, senha).
+Crie um arquivo .env na raiz do projeto com as suas credenciais.
 
-Execute o script para criar as tabelas:
+Snippet de código
+
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_HOST=seu_host
+DB_PORT=5432
+DB_NAME=seu_banco
+Execute o script para criar as tabelas.
 
 Bash
 
 python create_tables.py
-Executando a Aplicação
-Depois de configurar o banco de dados, você pode executar a aplicação com o seguinte comando:
+5. Executar a Aplicação
+Com o ambiente configurado, você pode iniciar o servidor.
 
 Bash
 
 python app.py
-A aplicação será iniciada e estará disponível em http://127.0.0.1:5000. A partir daí, você pode interagir com os endpoints CRUD que foram definidos em app.py.
+A API estará rodando em http://127.0.0.1:5000.
 
-Dependências
-As principais dependências para este projeto são:
+📝 Endpoints da API
+Você pode testar a API usando ferramentas como o Postman ou Insomnia.
 
-Flask: Um micro framework web para Python.
+Método	Endpoint	Descrição
+POST	/api/items	Cria um novo item no banco de dados.
+GET	/api/items	Retorna todos os itens.
+GET	/api/items/<id>	Retorna um item específico pelo ID.
+PUT	/api/items/<id>	Atualiza os dados de um item existente.
+DELETE	/api/items/<id>	Exclui um item do banco de dados.
 
-Psycopg2: Um adaptador de banco de dados PostgreSQL para Python.
+Exportar para as Planilhas
+🤝 Contribuições
+Contribuições são bem-vindas! Se você encontrou um bug ou tem uma ideia de melhoria, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-Você pode encontrar a lista completa de dependências no arquivo requirements.txt.
+📄 Licença
+Este projeto está licenciado sob a Licença MIT.
